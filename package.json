@@ -10,7 +10,9 @@
   "dependencies": {
     "highlight.js": "^9.15.6",
     "vue": "^2.6.6",
-    "vue2-editor": "^2.6.6"
+    "vue2-editor": "^2.6.6",
+    "quill-image-drop-module": "^1.0.3",
+    "quill-image-resize-module": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",

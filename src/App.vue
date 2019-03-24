@@ -1,6 +1,7 @@
 <template>
    <div id="app">
      <vue-editor v-model="content" 
+      :customModules="customModulesForEditor"
       :editorToolbar="customToolbar" 
       :editorOptions="editorSettings">
     </vue-editor>
@@ -9,6 +10,9 @@
 
  <script>
    import { VueEditor } from 'vue2-editor'
+   import { ImageDrop } from "quill-image-drop-module";
+   import ImageResize from "quill-image-resize-module";
+   
    import hljs from "highlight.js";
    import "highlight.js/styles/atom-one-dark.css";
 
@@ -22,6 +26,10 @@
        return {
          content: '<h1>Some initial content</h1>',
 
+         customModulesForEditor: [
+          { alias: "imageDrop", module: ImageDrop },
+          { alias: "imageResize", module: ImageResize }
+        ], 
          customToolbar: [
           ["bold", "italic", "underline", "strike"],
           ["blockquote", "code-block"],
@@ -42,7 +50,9 @@
         modules: {
           syntax: {
             highlight: text => hljs.highlightAuto(text).value
-          }
+          },
+          imageDrop: true,
+          imageResize: true
         }
       }
        }
